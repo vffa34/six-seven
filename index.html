@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Denari Coupon Manager</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section id="login-section" class="card">
+        <h1>Admin Login</h1>
+        <p>Sign in to create and manage barcode coupons.</p>
+        <form id="login-form">
+          <label>Username <input required id="username" /></label>
+          <label>Password <input required id="password" type="password" /></label>
+          <button type="submit">Login</button>
+        </form>
+        <p id="login-error" class="error"></p>
+      </section>
+
+      <section id="app-section" class="hidden">
+        <header class="toolbar">
+          <div>
+            <h1>Coupon Control</h1>
+            <p id="session-user"></p>
+          </div>
+          <button id="logout">Logout</button>
+        </header>
+
+        <section class="card">
+          <h2>Create Coupon</h2>
+          <form id="create-form" class="grid">
+            <label>Customer name <input required id="customer" /></label>
+            <label>Denari sum <input required id="denari" type="number" min="1" /></label>
+            <button type="submit">Generate Barcode</button>
+          </form>
+          <p class="hint">Barcode range: 000001 to 999999. Denari sums are unique per coupon.</p>
+          <p id="create-error" class="error"></p>
+        </section>
+
+        <section class="card">
+          <h2>Scan Coupon</h2>
+          <div class="scan-row">
+            <button id="start-scan">Start Camera Scan</button>
+            <label>or enter code manually <input id="manual-scan" pattern="\\d{6}" placeholder="000001" /></label>
+            <button id="manual-scan-btn">Find</button>
+          </div>
+          <video id="scanner" autoplay playsinline class="hidden"></video>
+          <p id="scan-result"></p>
+        </section>
+
+        <section class="card">
+          <h2>Coupons</h2>
+          <div id="coupon-list" class="coupon-list"></div>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
