@@ -13,8 +13,7 @@ Default admin credentials:
 
 - username: `admin`
 - password: `admin123`
-- username: `filipd1`
-- password: `filipck`
+
 
 Data is stored locally in browser storage for offline use.
 
@@ -29,7 +28,3 @@ cd android
 ```
 
 Install the APK from `android/app/build/outputs/apk/debug`.
-
-
-## Admin Control Panel
-After login, use the Admin Control Panel to create additional admin accounts and review existing usernames.

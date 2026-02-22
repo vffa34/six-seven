@@ -30,26 +30,14 @@
         </header>
 
         <section class="card">
-          <h2>Admin Control Panel</h2>
-          <form id="admin-form" class="grid">
-            <label>New admin username <input id="new-admin-username" required /></label>
-            <label>New admin password <input id="new-admin-password" type="password" required /></label>
-            <button type="submit">Create admin account</button>
-          </form>
-          <p id="admin-message" class="hint"></p>
-          <div>
-            <h3>Registered Admins</h3>
-            <ul id="admin-list"></ul>
-          </div>
-        </section>
 
-        <section class="card">
           <h2>Create Coupon</h2>
           <form id="create-form" class="grid">
             <label>Customer name <input required id="customer" /></label>
             <label>Denari sum <input required id="denari" type="number" min="1" /></label>
             <button type="submit">Generate Barcode</button>
           </form>
+
           <p id="create-error" class="error"></p>
         </section>
 

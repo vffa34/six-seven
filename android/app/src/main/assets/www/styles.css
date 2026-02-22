@@ -28,4 +28,3 @@ video#scanner { width: 100%; max-width: 380px; border-radius: 8px; border: 1px s
   .toolbar { flex-direction: column; align-items: flex-start; gap: .6rem; }
 }
 
-#admin-list { margin: .4rem 0 0; padding-left: 1.2rem; }

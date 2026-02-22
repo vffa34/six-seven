@@ -2,10 +2,7 @@ const STORAGE_KEY = 'denari-coupon-db-v1';
 const SESSION_KEY = 'denari-session-v1';
 
 const defaultDb = {
-  admins: [
-    { username: 'admin', password: 'admin123' },
-    { username: 'filipd1', password: 'filipck' },
-  ],
+
   coupons: []
 };
 
@@ -25,11 +22,7 @@ const el = {
   password: document.getElementById('password'),
   sessionUser: document.getElementById('session-user'),
   logout: document.getElementById('logout'),
-  adminForm: document.getElementById('admin-form'),
-  newAdminUsername: document.getElementById('new-admin-username'),
-  newAdminPassword: document.getElementById('new-admin-password'),
-  adminMessage: document.getElementById('admin-message'),
-  adminList: document.getElementById('admin-list'),
+
   createForm: document.getElementById('create-form'),
   customer: document.getElementById('customer'),
   denari: document.getElementById('denari'),
@@ -47,7 +40,7 @@ el.logout.addEventListener('click', logout);
 el.createForm.addEventListener('submit', createCoupon);
 el.startScan.addEventListener('click', startScan);
 el.manualScanBtn.addEventListener('click', () => findCoupon(el.manualScan.value));
-el.adminForm.addEventListener('submit', createAdmin);
+
 
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
 
@@ -123,24 +116,6 @@ function createCoupon(e) {
   renderCoupons();
 }
 
-function createAdmin(e) {
-  e.preventDefault();
-  const username = el.newAdminUsername.value.trim();
-  const password = el.newAdminPassword.value;
-  if (!username || !password) {
-    el.adminMessage.textContent = 'Username and password are required.';
-    return;
-  }
-  if (state.db.admins.some((a) => a.username.toLowerCase() === username.toLowerCase())) {
-    el.adminMessage.textContent = 'That admin username already exists.';
-    return;
-  }
-  state.db.admins.push({ username, password });
-  saveDb();
-  el.adminMessage.textContent = `Admin account ${username} created.`;
-  el.adminForm.reset();
-  renderAdmins();
-}
 
 function setUsed(code, used) {
   const coupon = state.db.coupons.find((c) => c.code === code);
@@ -167,19 +142,11 @@ function render() {
   el.appSection.classList.toggle('hidden', !loggedIn);
   if (loggedIn) {
     el.sessionUser.textContent = `Logged in as ${state.user}`;
-    renderAdmins();
+in
     renderCoupons();
   }
 }
 
-function renderAdmins() {
-  el.adminList.innerHTML = '';
-  for (const admin of state.db.admins) {
-    const li = document.createElement('li');
-    li.textContent = admin.username;
-    el.adminList.append(li);
-  }
-}
 
 function renderCoupons() {
   const list = [...state.db.coupons].sort((a, b) => a.code.localeCompare(b.code));
