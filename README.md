@@ -14,6 +14,7 @@ Default admin credentials:
 - username: `admin`
 - password: `admin123`
 
+
 Data is stored locally in browser storage for offline use.
 
 ## Android app

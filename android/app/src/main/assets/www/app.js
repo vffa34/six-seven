@@ -2,7 +2,7 @@ const STORAGE_KEY = 'denari-coupon-db-v1';
 const SESSION_KEY = 'denari-session-v1';
 
 const defaultDb = {
-  admins: [{ username: 'admin', password: 'admin123' }],
+
   coupons: []
 };
 
@@ -22,6 +22,7 @@ const el = {
   password: document.getElementById('password'),
   sessionUser: document.getElementById('session-user'),
   logout: document.getElementById('logout'),
+
   createForm: document.getElementById('create-form'),
   customer: document.getElementById('customer'),
   denari: document.getElementById('denari'),
@@ -39,6 +40,7 @@ el.logout.addEventListener('click', logout);
 el.createForm.addEventListener('submit', createCoupon);
 el.startScan.addEventListener('click', startScan);
 el.manualScanBtn.addEventListener('click', () => findCoupon(el.manualScan.value));
+
 
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
 
@@ -114,6 +116,7 @@ function createCoupon(e) {
   renderCoupons();
 }
 
+
 function setUsed(code, used) {
   const coupon = state.db.coupons.find((c) => c.code === code);
   if (!coupon) return;
@@ -139,9 +142,11 @@ function render() {
   el.appSection.classList.toggle('hidden', !loggedIn);
   if (loggedIn) {
     el.sessionUser.textContent = `Logged in as ${state.user}`;
+in
     renderCoupons();
   }
 }
+
 
 function renderCoupons() {
   const list = [...state.db.coupons].sort((a, b) => a.code.localeCompare(b.code));

@@ -30,13 +30,14 @@
         </header>
 
         <section class="card">
+
           <h2>Create Coupon</h2>
           <form id="create-form" class="grid">
             <label>Customer name <input required id="customer" /></label>
             <label>Denari sum <input required id="denari" type="number" min="1" /></label>
             <button type="submit">Generate Barcode</button>
           </form>
-          <p class="hint">Barcode range: 000001 to 999999. Denari sums are unique per coupon.</p>
+
           <p id="create-error" class="error"></p>
         </section>
 

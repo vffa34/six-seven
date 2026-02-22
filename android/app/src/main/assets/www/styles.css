@@ -27,3 +27,4 @@ video#scanner { width: 100%; max-width: 380px; border-radius: 8px; border: 1px s
 @media (max-width: 640px) {
   .toolbar { flex-direction: column; align-items: flex-start; gap: .6rem; }
 }
+
